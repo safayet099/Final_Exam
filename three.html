@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Input Form</title>
+    <style>
+        .error {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="process.php" method="POST" id="ageForm">
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('ageForm').addEventListener('submit', function(event) {
+            var ageInput = document.getElementById('age').value;
+            if (ageInput > 100) {
+                event.preventDefault();
+                alert('Invalid Input');
+                document.getElementById('age').classList.add('error'); // Add error class to input
+            }
+        });
+    </script>
+</body>
+</html>
